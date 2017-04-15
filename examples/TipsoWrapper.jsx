@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'light-ui';
-import Tipso from '../components/Tipso';
+import Tipso from '../components/index';
 
 class TipsoWrapper extends React.Component {
   render() {

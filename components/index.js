@@ -1,1 +1,3 @@
-export Tipso from './Tipso';
+import Tipso from './Tipso';
+
+export default Tipso;
