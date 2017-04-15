@@ -20,6 +20,38 @@ Click here: [https://ecmadao.github.io/rc-tipso](https://ecmadao.github.io/rc-ti
 $ npm i rc-tipso --save
 ```
 
+### Build config
+
+use webpack as example
+
+```javascript
+// webpack config file
+
+// css loaders
+const cssLoaders = [
+  'style-loader',
+  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+  'postcss-loader'
+];
+
+const webpackConfig = {
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        include: /rc-tipso/,
+        loaders: cssLoaders
+      }
+    ]
+  },
+  postcss: () => {
+    return [
+      require('postcss-cssnext')
+    ]
+  }
+};
+```
+
 ## Usage
 
 ```javascript
