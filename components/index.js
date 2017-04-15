@@ -1,0 +1,1 @@
+export Tipso from './Tipso';
