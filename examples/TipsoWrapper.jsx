@@ -125,6 +125,26 @@ class TipsoWrapper extends React.Component {
             />
           </Tipso>
         </div>
+
+        <h4>Always disable Tipso</h4>
+        <div>
+          <Tipso
+            show={true}
+            theme="dark"
+            position="bottom"
+            disabled={true}
+            tipsoContent={(
+              <div style={{
+                width: '95px',
+                textAlign: 'center'
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="show in default"
+            />
+          </Tipso>
+        </div>
+
         <h4>Show Tipso by outside props</h4>
         <div>
           <Tipso

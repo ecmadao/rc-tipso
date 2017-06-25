@@ -19,7 +19,8 @@ const propTypes = {
   wrapperStyle: PropTypes.object,
   wrapperClass: PropTypes.string,
   position: PropTypes.string,
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -32,7 +33,8 @@ const defaultProps = {
   wrapperStyle: {},
   wrapperClass: '',
   position: 'top',
-  show: false
+  show: false,
+  disabled: false,
 };
 
 class BaseTipso extends React.Component {
@@ -75,7 +77,7 @@ class BaseTipso extends React.Component {
   }
 
   get triggerFunc() {
-    const { trigger } = this.props;
+    const { trigger, disabled } = this.props;
     const func = {
       hover: {
         onMouseOver: this.handleShowChange(true),
@@ -90,13 +92,14 @@ class BaseTipso extends React.Component {
         onFocus: this.handleShowChange(true),
       }
     };
-    return func[trigger] || {};
+    return disabled ? {} : func[trigger] || {};
   }
 
   render() {
     const { show } = this.state;
     const {
       theme,
+      disabled,
       position,
       children,
       className,
@@ -109,7 +112,7 @@ class BaseTipso extends React.Component {
       styles["tipso-container"],
       styles[theme],
       styles[position],
-      (this.props.show || show) && styles["active"],
+      !disabled && (this.props.show || show) && styles["active"],
       className
     );
 
