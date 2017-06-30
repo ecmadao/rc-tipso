@@ -12,6 +12,7 @@
 
   /* ===== zIndex ===== */
   --zIndexHidden: -9;
+  --zIndex0: -1;
   --zIndex1: 1;
   --zIndex99: 99;
 
