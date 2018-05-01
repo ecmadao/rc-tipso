@@ -22,7 +22,50 @@ $ npm i rc-tipso --save
 
 ### Build config
 
-use webpack as example
+- Webpack 3.x config example
+
+```javascript
+// webpack config file
+
+// loaders
+const postcssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    config: {
+      path: path.join(__dirname, 'postcss.config.js')
+    }
+  }
+};
+const cssModulesLoader = ExtractTextPlugin.extract({
+  fallback: 'style-loader',
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        sourceMaps: true,
+        importLoaders: 1,
+        localIdentName: '[name]__[local]___[hash:base64:5]'
+      }
+    },
+    postcssLoader
+  ],
+});
+
+const webpackConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        include: /rc-tipso/,
+        loaders: cssModulesLoader
+      }
+    ]
+  }
+};
+```
+
+- Webpack 1.x config example
 
 ```javascript
 // webpack config file
