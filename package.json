@@ -1,6 +1,6 @@
 {
   "name": "rc-tipso",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tooltip component for react",
   "main": "./lib/index.js",
   "scripts": {
