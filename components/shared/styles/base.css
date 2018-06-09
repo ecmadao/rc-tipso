@@ -8,7 +8,7 @@
   --radius-small: 2px;
 
   /* ===== shadow ===== */
-  --shadowTipso: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);
+  --shadowTipso: 4px 4px 30px 0 rgba(0, 0, 0, 0.2);
 
   /* ===== zIndex ===== */
   --zIndexHidden: -9;
