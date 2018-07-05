@@ -3,9 +3,11 @@
 :root {
   --triangleWidth: 8px;
   --triangleHeight: 5px;
+  --triangleHeightNegative: -5px;
   --offsetTop: 4px;
   --offsetBottom: -4px;
   --offsetLeft: 8px;
+  --offsetLeftNegative: -8px;
   --offsetRight: 4px;
 
   --ratio: 4;
@@ -14,6 +16,9 @@
   --modalContentOpacity: 0;
   --scale: scale(1);
   --scaleActive: scale(1);
+
+  --shadow: 4px 4px 30px 0 rgba(0, 0, 0, 0.2);
+  --filter: rgba(0, 0, 0, 0.2) 4px 4px 30px;
 }
 
 .tipso-wrapper {
@@ -33,7 +38,8 @@
 .tipso-container {
   background-color: var(--white);
   border-radius: var(--radius-small);
-  box-shadow: var(--shadowTipso);
+  box-shadow: var(--shadow);
+  filter: drop-shadow(var(--filter));
   padding: 10px;
   justify-content: center;
   align-items: center;
@@ -63,7 +69,7 @@
     content: '';
     display: block;
     position: absolute;
-    filter: drop-shadow(var(--shadowTipso));
+    filter: drop-shadow(var(--filter));
   }
 
   &::after {
@@ -98,7 +104,7 @@
   transform: var(--scale) translate(-50%, var(--offsetTop));
 
   &::after {
-    bottom: -var(--triangleHeight);
+    bottom: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -124,7 +130,7 @@
   transform: var(--scale) translate(-50%, var(--offsetBottom));
 
   &::after {
-    top: -var(--triangleHeight);
+    top: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -147,10 +153,10 @@
 
 .left {
   right: calc(100% + var(--offsetLeft) * var(--ratio));
-  transform: var(--scale) translate(-var(--offsetLeft), -50%);
+  transform: var(--scale) translate(var(--offsetLeftNegative), -50%);
 
   &::after {
-    right: -var(--triangleHeight);
+    right: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -167,7 +173,7 @@
 
   &.active {
     right: 100%;
-    transform: var(--scaleActive) translate(-var(--offsetLeft), -50%);
+    transform: var(--scaleActive) translate(var(--offsetLeftNegative), -50%);
   }
 }
 
@@ -176,7 +182,7 @@
   transform: var(--scale) translate(var(--offsetRight), -50%);
 
   &::after {
-    left: -var(--triangleHeight);
+    left: var(--triangleHeightNegative);
   }
 
   &.dark {
